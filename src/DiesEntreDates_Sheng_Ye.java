@@ -51,11 +51,7 @@ public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
 
     //Calcular los dias entre dos fechas en que no sean bisiestos
     protected int diesNumAnysComplets(DataXS datainicial, DataXS datadesti) {
-        int diasAnyComplets = 0;
-        for (int i = datainicial.any + 1; i < datainicial.any + (datadesti.any - datainicial.any); i++){
-            if (anyDeTraspas(i)) diasAnyComplets += 365;
-        }
-        return diasAnyComplets;
+        return (((datadesti.any) - (datainicial.any + 1)) * 365);
     }
 
     //Calcular los dias entre dos fechas si son bisiestos
