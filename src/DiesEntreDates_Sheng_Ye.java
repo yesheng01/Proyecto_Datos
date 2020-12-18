@@ -9,7 +9,7 @@
 public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
 
     //Array que contiene dia de meses.
-    private final int[] diaMes = new int[]{
+    protected int[] diaMes = new int[]{
             31, 28, 31,
             30, 31, 30,
             31, 31, 30,
@@ -22,19 +22,19 @@ public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
     }
 
     //Se resta los dias de los meses con el numero de dia que le pasemos luego.
-    protected int diesMesInicial(DataXS dataXS) {
-        return  this.diesMes(dataXS.mes) - dataXS.dia;
+    protected int diesMesInicial(DataXS datainicial) {
+        return  this.diesMes(datainicial.mes) - datainicial.dia;
     }
 
     //Calcula restando los dias que han pasado desde el destino.
-    protected int diesMesDesti(DataXS dataXS) {
-        return dataXS.dia;
+    protected int diesMesDesti(DataXS datainicial) {
+        return datainicial.dia;
     }
 
     //Calcula el resto de dias que quedan del año
     protected int diesResteAnyInicial(DataXS datainicial) {
         int diarestantsinicial = this.diesMesInicial(datainicial);
-        for (int i = datainicial.mes; i < 12; i++) {
+        for (int i = datainicial.mes +1; i <=12; i++) {
             diarestantsinicial = diarestantsinicial + this.diaMes[i];
         }
         return diarestantsinicial - this.diesMesInicial(datainicial);
@@ -65,7 +65,6 @@ public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
 
     //pasa a calcular el año si es bisiesto
     protected boolean anyDeTraspas(int any) {
-        this.diaMes[1] = 29;
         return (any % 400 == 0) || ((any % 4 == 0) && !(any % 100 == 0));
     }
 }
