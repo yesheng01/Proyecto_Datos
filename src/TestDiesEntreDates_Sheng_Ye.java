@@ -13,7 +13,8 @@ public class TestDiesEntreDates_Sheng_Ye {
                 DataXS Fechaprincipal = new DataXS("12/12/2017");
                 DataXS FechaFinal = new DataXS("01/01/2018");
                 System.out.println("Los dias entre dos fechas han sido: " +c1.nombreDiesTotals(Fechaprincipal,FechaFinal));
-            }catch (Exception e){
+
+            }catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }

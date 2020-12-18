@@ -35,7 +35,7 @@ public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
     protected int diesResteAnyInicial(DataXS datainicial) {
         int diarestantsinicial = this.diesMesInicial(datainicial);
         for (int i = datainicial.mes; i < 12; i++) {
-            diarestantsinicial += this.diaMes[i];
+            diarestantsinicial = diarestantsinicial + this.diaMes[i];
         }
         return diarestantsinicial - this.diesMesInicial(datainicial);
     }
@@ -44,7 +44,7 @@ public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
     protected int diesResteAnyDesti(DataXS datadesti) {
         int diesrestantsdestino = this.diesMesDesti(datadesti);
         for (int i = 0; i < datadesti.mes - 1; i++) {
-            diesrestantsdestino += diaMes[i];
+            diesrestantsdestino = diesrestantsdestino + diaMes[i];
         }
         return diesrestantsdestino - this.diesMesDesti(datadesti);
     }
@@ -60,11 +60,11 @@ public class DiesEntreDates_Sheng_Ye extends CalcularDiesEntreDates {
 
     //Calcular los dias entre dos fechas si son bisiestos
     protected int numDiesPerAnysdeTraspas(DataXS datainicial, DataXS datadesti) {
-        int diasAnyTraspass = 0;
+        int AnyTraspass = 0;
         for (int i = datainicial.any + 1; i < datainicial.any + (datadesti.any - datainicial.any); i++){
-            if (anyDeTraspas(i)) diasAnyTraspass += 366;
+            if (anyDeTraspas(i)) AnyTraspass += 366;
         }
-        return diasAnyTraspass;
+        return AnyTraspass;
     }
 
     //pasa a calcular el año si es bisiesto
