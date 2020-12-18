@@ -7,19 +7,15 @@
  * Description:
  **/
 public class TestDiesEntreDates_Sheng_Ye {
-        private static DiesEntreDates_Sheng_Ye calcul;
-        private static DataXS inici, desti;
-
         public static void main(String[] args) {
-            calcul = new DiesEntreDates_Sheng_Ye();
+            DiesEntreDates_Sheng_Ye c1 = new DiesEntreDates_Sheng_Ye();
             try {
-                inici = new DataXS("12/12/2017");
-                desti = new DataXS("1/1/2018");
-                System.out.println(calcul.nombreDiesTotals(inici,desti));
-            } catch (Exception e){
+                DataXS Fechaprincipal = new DataXS("12/12/2017");
+                DataXS FechaFinal = new DataXS("01/01/2018");
+                System.out.println("Los dias entre dos fechas han sido: " +c1.nombreDiesTotals(Fechaprincipal,FechaFinal));
+            }catch (Exception e){
                 System.out.println(e.getMessage());
             }
         }
-
 
 }
